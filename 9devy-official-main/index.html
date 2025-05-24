@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>9Devy LLC - Official Website</title>
   <!-- TailwindCSS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-900">
 
@@ -88,23 +88,37 @@
     &copy; 2025 9Devy LLC
   </footer>
 
-  <!-- GSAP for Animations -->
+  <!-- GSAP Core -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <!-- GSAP ScrollTrigger Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
   <script>
-    // Animate hero title
+    // Animate the hero title on page load
     gsap.from(".hero-title", { duration: 1, opacity: 0, y: -50 });
 
-    // Animate the About section header
-    gsap.from("#about h2", { duration: 1, opacity: 0, x: -100, scrollTrigger: "#about" });
+    // Animate the About header when it enters the viewport
+    gsap.from("#about h2", {
+      duration: 1,
+      opacity: 0,
+      x: -100,
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top center"
+      }
+    });
 
-    // Animate the Services section header
-    gsap.from("#services h2", { duration: 1, opacity: 0, x: 100, scrollTrigger: "#services" });
-
-    // For scroll-based animations, you might need to include the ScrollTrigger plugin:
-    // <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    // Animate the Services header when it enters the viewport
+    gsap.from("#services h2", {
+      duration: 1,
+      opacity: 0,
+      x: 100,
+      scrollTrigger: {
+        trigger: "#services",
+        start: "top center"
+      }
+    });
   </script>
-  <!-- Uncomment the following ScrollTrigger script if you plan to use scroll animations -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script> -->
 </body>
 </html>
+
 
